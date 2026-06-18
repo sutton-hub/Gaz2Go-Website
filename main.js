@@ -40,16 +40,18 @@ window.addEventListener('scroll', () => {
 // ── Hamburger menu ──────────────────────────────────────
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
-hamburger.addEventListener('click', () => {
-  const open = mobileMenu.classList.toggle('open');
-  hamburger.classList.toggle('open', open);
-});
-document.querySelectorAll('.mobile-link, #mobile-menu .btn-nav').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    hamburger.classList.remove('open');
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
   });
-});
+  document.querySelectorAll('.mobile-link, #mobile-menu .btn-nav').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+    });
+  });
+}
 
 // ── Intersection Observer — fade-in animations ──────────
 const observer = new IntersectionObserver((entries) => {
