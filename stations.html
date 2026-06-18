@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stations | Gaz2Go</title>
+  <meta name="description" content="Find a Gaz2Go LPG exchange station near you across South Africa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: {
+              black:  '#0a0a0a',
+              black2: '#111111',
+              surface:'#1a1a1a',
+              surface2:'#222222',
+              grey:   '#888888',
+              light:  '#f5f5f5',
+              accent: '#e62828',
+              warm:   '#f03c3c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- SVG defs for noise -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <filter id="noise-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch" result="noiseOut"/>
+      <feColorMatrix type="saturate" values="0" in="noiseOut" result="grey"/>
+      <feBlend in="SourceGraphic" in2="grey" mode="overlay"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- ─── NAVBAR ─────────────────────────────────────────── -->
+<nav id="navbar">
+  <a href="index.html">
+    <img
+      src="https://images.groovetech.io/Q6AdZMbL-gtLKjwaKrVaJy5M9BvmSFnjlFCRkEsi7hQ/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmOWU2ZTRjMzg2ZmQ5MDA2ZmFmM2M5MS8xNzM5MTA2NDEyX0dhczJHT3doaXRlRmluYWxMb2dvMjczMnB4cmVtb3ZlYmcucG5n.webp"
+      alt="Gaz2Go logo"
+      class="nav-logo"
+    />
+  </a>
+  <nav style="flex:1; display:flex; align-items:center; justify-content:center;">
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="stations.html">Stations</a></li>
+      <li><a href="app.html">App</a></li>
+      <li><a href="invest.html">Invest</a></li>
+      <li><a href="invest.html#footer">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="stations.html" class="btn-nav">Find Gas Near Me</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobile-menu">
+  <a href="how-it-works.html" class="mobile-link">How It Works</a>
+  <a href="stations.html" class="mobile-link">Stations</a>
+  <a href="app.html" class="mobile-link">App</a>
+  <a href="invest.html" class="mobile-link">Invest</a>
+  <a href="invest.html#footer" class="mobile-link">Contact</a>
+  <a href="stations.html" class="btn-nav">Find Gas Near Me</a>
+</div>
+
+<!-- ─── EXCHANGE STATION SHOWCASE ──────────────────────── -->
+<section id="showcase">
+  <div class="showcase-hero">
+    <img
+      src="Brand Assets/WhatsApp Image 2026-06-09 at 10.44.38.jpeg"
+      alt="Gaz2Go exchange station — full unit showing gas cylinder locker bays, GAZ2GO exchange station signage, and AFROX partnership branding"
+      class="showcase-bg"
+    />
+    <div class="showcase-overlay"></div>
+    <div class="showcase-content">
+      <div class="section-label" data-animate>The Hardware</div>
+      <h2 class="section-title" data-animate style="--delay:0.1s">Built for South Africa.<br/>Engineered for reliability.</h2>
+      <div class="showcase-chips" data-animate style="--delay:0.2s">
+        <span class="chip"><span class="chip-dot"></span>24/7 Access</span>
+        <span class="chip"><span class="chip-dot"></span>SANS 10087-7 Certified</span>
+        <span class="chip"><span class="chip-dot"></span>LPGSA Member</span>
+        <span class="chip"><span class="chip-dot"></span>VIMS Smart Monitoring</span>
+        <span class="chip"><span class="chip-dot"></span>Card &amp; Digital Payments</span>
+        <span class="chip"><span class="chip-dot"></span>Built in South Africa</span>
+      </div>
+      <p class="showcase-copy" data-animate style="--delay:0.3s">
+        Our exchange stations are weather-hardened, SANS-certified, and built with integrated gas detectors, night cameras, and our proprietary VIMS (Vending Inventory Management System) — fully monitored in real time, 24 hours a day.
+      </p>
+    </div>
+  </div>
+  <!-- Gallery header bar -->
+  <div style="background:#0d0d0d;padding:2.5rem 2rem 1.5rem;">
+    <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <div style="font-size:1rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;">
+          <span style="width:20px;height:2px;background:var(--accent);display:inline-block;border-radius:2px;"></span>
+          Live Deployments
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.625rem;">
+        <div style="width:8px;height:8px;background:#4ade80;border-radius:50%;box-shadow:0 0 8px rgba(74,222,128,0.75);animation:pulse-ring 2.4s ease-out infinite;"></div>
+        <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.55);">All stations live</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3-column location gallery -->
+  <div class="showcase-gallery showcase-gallery--3col" style="gap:3px;">
+    <div class="showcase-thumb" style="aspect-ratio:4/5;position:relative;">
+      <img
+        src="Brand Assets/kwikspar paarl machine.jpeg"
+        alt="Gaz2Go exchange station at Kwikspar Paarl"
+      />
+      <div class="showcase-loc-label">
+        <span class="showcase-loc-dot"></span>Kwikspar Paarl
+      </div>
+    </div>
+    <div class="showcase-thumb" style="aspect-ratio:4/5;position:relative;">
+      <img
+        src="Brand Assets/laborie machine.jpeg"
+        alt="Gaz2Go exchange station at Laborie"
+      />
+      <div class="showcase-loc-label">
+        <span class="showcase-loc-dot"></span>Laborie Centre
+      </div>
+    </div>
+    <div class="showcase-thumb" style="aspect-ratio:4/5;position:relative;">
+      <img
+        src="Brand Assets/Wood drive machine.jpeg"
+        alt="Gaz2Go exchange station at Wood Drive"
+      />
+      <div class="showcase-loc-label">
+        <span class="showcase-loc-dot"></span>Wood Drive Lifestyle Centre
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LOCATIONS MAP ───────────────────────────────────── -->
+<section id="locations">
+  <div class="section-inner">
+    <div class="section-label" data-animate>Network</div>
+    <h2 class="section-title" data-animate style="--delay:0.1s">Find Gaz2Go Near You</h2>
+    <p class="section-sub" data-animate style="--delay:0.2s">
+      Stations are located at high-traffic retail sites across South Africa. More locations launching monthly.
+    </p>
+
+    <div class="map-frame" data-animate style="--delay:0.3s">
+      <iframe
+        src="https://www.google.com/maps/d/u/0/embed?mid=1ffemg7c5GfL9JrUKt-wX4DS8JNWyeYw&ehbc=2E312F&noprof=1"
+        allowfullscreen
+        loading="lazy"
+        title="Gaz2Go station locations map"
+      ></iframe>
+    </div>
+
+    <div class="stations-grid" id="stations-grid">
+      <!-- Rendered by JS from STATIONS array -->
+    </div>
+  </div>
+</section>
+
+<script src="main.js"></script>
+</body>
+</html>
