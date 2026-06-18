@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invest | Gaz2Go</title>
+  <meta name="description" content="Own a Gaz2Go automated LPG exchange station. Register your interest for franchise opportunities opening in 2027." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: {
+              black:  '#0a0a0a',
+              black2: '#111111',
+              surface:'#1a1a1a',
+              surface2:'#222222',
+              grey:   '#888888',
+              light:  '#f5f5f5',
+              accent: '#e62828',
+              warm:   '#f03c3c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- SVG defs for noise -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <filter id="noise-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch" result="noiseOut"/>
+      <feColorMatrix type="saturate" values="0" in="noiseOut" result="grey"/>
+      <feBlend in="SourceGraphic" in2="grey" mode="overlay"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- ─── NAVBAR ─────────────────────────────────────────── -->
+<nav id="navbar">
+  <a href="index.html">
+    <img
+      src="https://images.groovetech.io/Q6AdZMbL-gtLKjwaKrVaJy5M9BvmSFnjlFCRkEsi7hQ/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmOWU2ZTRjMzg2ZmQ5MDA2ZmFmM2M5MS8xNzM5MTA2NDEyX0dhczJHT3doaXRlRmluYWxMb2dvMjczMnB4cmVtb3ZlYmcucG5n.webp"
+      alt="Gaz2Go logo"
+      class="nav-logo"
+    />
+  </a>
+  <nav style="flex:1; display:flex; align-items:center; justify-content:center;">
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="stations.html">Stations</a></li>
+      <li><a href="app.html">App</a></li>
+      <li><a href="invest.html">Invest</a></li>
+      <li><a href="invest.html#footer">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="stations.html" class="btn-nav">Find Gas Near Me</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobile-menu">
+  <a href="how-it-works.html" class="mobile-link">How It Works</a>
+  <a href="stations.html" class="mobile-link">Stations</a>
+  <a href="app.html" class="mobile-link">App</a>
+  <a href="invest.html" class="mobile-link">Invest</a>
+  <a href="invest.html#footer" class="mobile-link">Contact</a>
+  <a href="stations.html" class="btn-nav">Find Gas Near Me</a>
+</div>
+
+<!-- ─── INVEST / PARTNER ────────────────────────────────── -->
+<section id="invest">
+  <div class="section-inner">
+    <div class="invest-inner">
+      <div>
+        <div class="section-label" data-animate>Ownership</div>
+        <div class="notice-pill" data-animate style="--delay:0.05s">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          No franchise opportunities until 2027
+        </div>
+        <h2 class="section-title" data-animate style="--delay:0.1s">Own a Gaz2Go Station</h2>
+        <p class="section-sub" data-animate style="--delay:0.2s">
+          We're building South Africa's most trusted gas network. If you want to be part of it when doors open, register your interest now — and be first in line.
+        </p>
+        <a href="mailto:wayne@gaz2go.co.za?subject=Gaz2Go Investment Interest" class="btn-primary" style="margin-top:2rem; display:inline-flex;" data-animate style="--delay:0.3s">
+          Register Interest
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+      <div class="stats-grid" data-animate style="--delay:0.2s">
+        <div class="stat-cell">
+          <div class="stat-value">18–24M</div>
+          <div class="stat-label">Month ROI Timeline</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-value">Zero</div>
+          <div class="stat-label">Inventory Management Required</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-value">Live</div>
+          <div class="stat-label">Real-Time Sales Tracking via VIMS</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-value">Afrox</div>
+          <div class="stat-label">Backed by a Linde Company</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRE-FOOTER CTA BANNER ───────────────────────────── -->
+<section id="cta-banner">
+  <div class="cta-banner-inner">
+    <div class="section-label" data-animate>Get Started</div>
+    <h2 class="section-title" data-animate style="--delay:0.1s">Never run out of gas again.</h2>
+    <p class="cta-banner-sub" data-animate style="--delay:0.2s">Join the network. Swap in under two minutes, any time of day — at a station near you.</p>
+    <div class="cta-banner-actions" data-animate style="--delay:0.3s">
+      <a href="stations.html" class="btn-primary">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Find Nearest Station
+      </a>
+      <a href="app.html" class="btn-secondary">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+        Download App
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER / CONTACT ────────────────────────────────── -->
+<footer id="footer">
+  <div class="footer-grid">
+    <div>
+      <img
+        src="https://images.groovetech.io/Q6AdZMbL-gtLKjwaKrVaJy5M9BvmSFnjlFCRkEsi7hQ/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmOWU2ZTRjMzg2ZmQ5MDA2ZmFmM2M5MS8xNzM5MTA2NDEyX0dhczJHT3doaXRlRmluYWxMb2dvMjczMnB4cmVtb3ZlYmcucG5n.webp"
+        alt="Gaz2Go"
+        class="footer-logo"
+      />
+      <p class="footer-tagline">South Africa's first fully automated LPG exchange station network. Gas, on demand, 24/7.</p>
+      <p class="footer-tagline" style="margin-top:0.75rem; font-size:0.8125rem;">Sli Investment Holdings Pty Ltd</p>
+      <div class="footer-social">
+        <!-- Instagram -->
+        <a href="#" class="social-btn" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <!-- Facebook -->
+        <a href="#" class="social-btn" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-h">Contact</div>
+      <div class="contact-item">
+        <span class="contact-name">Wayne Barr</span>
+        <span class="contact-detail"><a href="tel:+27662954333">+27 (0)66 295 4333</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-name">Brett Botten</span>
+        <span class="contact-detail"><a href="tel:+27824900555">+27 (0)82 490 0555</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-name">Frank Manson</span>
+        <span class="contact-detail"><a href="tel:+27828757983">+27 (0)82 875 7983</a></span>
+      </div>
+      <div class="footer-address">
+        11 Grayhawk Crescent, Westwood,<br/>
+        Sunningdale, Cape Town, 7441
+      </div>
+    </div>
+    <div>
+      <div class="footer-h">Legal</div>
+      <ul class="footer-links">
+        <li><a href="#">Terms of Use</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Sli Investment Holdings Pty Ltd. All rights reserved.</span>
+    <span class="footer-copy">Powered by Afrox, a Linde company.</span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
