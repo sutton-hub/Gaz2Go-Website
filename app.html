@@ -56,6 +56,7 @@
   </a>
   <nav style="flex:1; display:flex; align-items:center; justify-content:center;">
     <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
       <li><a href="how-it-works.html">How It Works</a></li>
       <li><a href="stations.html">Stations</a></li>
       <li><a href="app.html">App</a></li>
@@ -71,6 +72,7 @@
 
 <!-- Mobile menu -->
 <div id="mobile-menu">
+  <a href="index.html" class="mobile-link">Home</a>
   <a href="how-it-works.html" class="mobile-link">How It Works</a>
   <a href="stations.html" class="mobile-link">Stations</a>
   <a href="app.html" class="mobile-link">App</a>
@@ -118,72 +120,13 @@
       <div class="phone-mockup" data-animate style="--delay:0.2s">
         <div class="phone-frame">
           <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <!-- App header row -->
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">
-              <div>
-                <div class="phone-bar accent" style="width:54px;margin-bottom:4px;"></div>
-                <div class="phone-bar short" style="width:36px;height:6px;opacity:0.4;"></div>
-              </div>
-              <div style="width:22px;height:22px;background:rgba(230,40,40,0.18);border-radius:50%;border:1px solid rgba(230,40,40,0.35);"></div>
-            </div>
-            <!-- Nearest station card -->
-            <div style="background:rgba(230,40,40,0.08);border:1px solid rgba(230,40,40,0.22);border-radius:8px;padding:0.5rem 0.625rem;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;">
-              <div style="width:26px;height:26px;background:rgba(230,40,40,0.22);border-radius:6px;flex-shrink:0;"></div>
-              <div style="flex:1;min-width:0;">
-                <div class="phone-bar" style="width:80%;height:7px;margin-bottom:3px;background:rgba(255,255,255,0.14);border-radius:4px;"></div>
-                <div class="phone-bar" style="width:55%;height:5px;background:rgba(255,255,255,0.07);border-radius:4px;"></div>
-              </div>
-              <div style="width:7px;height:7px;background:#4ade80;border-radius:50%;box-shadow:0 0 6px rgba(74,222,128,0.7);flex-shrink:0;"></div>
-            </div>
-            <!-- Static map illustration with pin -->
-            <div style="flex:1;border-radius:10px;overflow:hidden;position:relative;min-height:0;">
-              <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
-                <!-- Map base -->
-                <rect width="200" height="180" fill="#ede8e0"/>
-                <!-- Green areas / parks -->
-                <rect x="0" y="82" width="54" height="52" fill="#c6ddb8" rx="2"/>
-                <rect x="148" y="0" width="52" height="36" fill="#c6ddb8" rx="2"/>
-                <!-- Building blocks -->
-                <rect x="63"  y="7"   width="30" height="22" fill="#d2c9c0" rx="1"/>
-                <rect x="98"  y="7"   width="38" height="22" fill="#d2c9c0" rx="1"/>
-                <rect x="63"  y="50"  width="30" height="22" fill="#d2c9c0" rx="1"/>
-                <rect x="98"  y="50"  width="38" height="22" fill="#d2c9c0" rx="1"/>
-                <rect x="63"  y="112" width="30" height="26" fill="#d2c9c0" rx="1"/>
-                <rect x="98"  y="112" width="38" height="26" fill="#d2c9c0" rx="1"/>
-                <rect x="148" y="50"  width="52" height="28" fill="#d2c9c0" rx="1"/>
-                <rect x="148" y="90"  width="52" height="30" fill="#d2c9c0" rx="1"/>
-                <rect x="8"   y="7"   width="50" height="28" fill="#d2c9c0" rx="1"/>
-                <rect x="8"   y="48"  width="45" height="24" fill="#d2c9c0" rx="1"/>
-                <rect x="8"   y="140" width="50" height="33" fill="#d2c9c0" rx="1"/>
-                <rect x="63"  y="148" width="68" height="25" fill="#d2c9c0" rx="1"/>
-                <rect x="148" y="134" width="52" height="39" fill="#d2c9c0" rx="1"/>
-                <!-- Horizontal roads -->
-                <rect x="0" y="37"  width="200" height="9" fill="#ffffff"/>
-                <rect x="0" y="78"  width="200" height="6" fill="#ffffff"/>
-                <rect x="0" y="108" width="200" height="6" fill="#ffffff"/>
-                <rect x="0" y="140" width="200" height="6" fill="#ffffff"/>
-                <!-- Vertical roads -->
-                <rect x="0"   y="0" width="6" height="180" fill="#ffffff"/>
-                <rect x="58"  y="0" width="5" height="180" fill="#ffffff"/>
-                <rect x="96"  y="0" width="5" height="180" fill="#ffffff"/>
-                <rect x="144" y="0" width="6" height="180" fill="#ffffff"/>
-                <rect x="194" y="0" width="6" height="180" fill="#ffffff"/>
-                <!-- Main road highlight (yellow) -->
-                <rect x="0"  y="37" width="200" height="9" fill="#f7c948" opacity="0.45"/>
-                <rect x="58" y="0"  width="5" height="180" fill="#f7c948" opacity="0.25"/>
-                <!-- Pin shadow -->
-                <ellipse cx="100" cy="78" rx="7" ry="2.5" fill="rgba(0,0,0,0.22)"/>
-                <!-- Pin teardrop -->
-                <path d="M100 44 C89 44 82 52 82 61 C82 73 100 78 100 78 C100 78 118 73 118 61 C118 52 111 44 100 44 Z" fill="#e62828"/>
-                <!-- Pin inner white circle -->
-                <circle cx="100" cy="61" r="6.5" fill="white"/>
-                <!-- Pin centre dot -->
-                <circle cx="100" cy="61" r="3.5" fill="#e62828"/>
-              </svg>
-            </div>
-            <!-- CTA button -->
-            <div style="margin-top:0.5rem;background:rgba(230,40,40,0.9);border-radius:8px;padding:0.45rem;text-align:center;font-size:0.55rem;font-weight:800;color:#fff;letter-spacing:0.08em;text-transform:uppercase;">SWAP GAS NOW</div>
+          <div class="phone-screen" style="padding:0;gap:0;overflow:hidden;">
+            <img
+              src="Brand Assets/Gaz2Go App Screenshot.jpeg"
+              alt="Gaz2Go app interface"
+              style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"
+              draggable="false"
+            />
           </div>
         </div>
       </div>

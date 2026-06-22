@@ -698,7 +698,7 @@ section { padding: 7rem 2rem; }
   padding-bottom: 4rem;
   border-bottom: 1px solid rgba(255,255,255,0.07);
 }
-.footer-logo { height: 32px; object-fit: contain; margin-bottom: 1rem; }
+.footer-logo { height: 64px; object-fit: contain; margin-bottom: 1rem; }
 .footer-tagline { font-size: 0.9rem; color: rgba(255,255,255,0.45); line-height: 1.65; max-width: 280px; }
 .footer-social { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
 .social-btn {
@@ -712,6 +712,12 @@ section { padding: 7rem 2rem; }
   transition: background 0.2s, color 0.2s;
 }
 .social-btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+.social-btn--instagram { color: #E1306C; border-color: rgba(225,48,108,0.3); }
+.social-btn--instagram:hover { background: rgba(225,48,108,0.12); color: #E1306C; border-color: rgba(225,48,108,0.5); }
+.social-btn--facebook { color: #1877F2; border-color: rgba(24,119,242,0.3); }
+.social-btn--facebook:hover { background: rgba(24,119,242,0.12); color: #1877F2; border-color: rgba(24,119,242,0.5); }
+.social-btn--youtube { color: #FF0000; border-color: rgba(255,0,0,0.3); }
+.social-btn--youtube:hover { background: rgba(255,0,0,0.12); color: #FF0000; border-color: rgba(255,0,0,0.5); }
 .social-btn svg { width: 18px; height: 18px; }
 .footer-h { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1.25rem; }
 .contact-item { display: flex; flex-direction: column; gap: 0.125rem; margin-bottom: 1.25rem; }
@@ -1058,3 +1064,273 @@ section { padding: 7rem 2rem; }
   width: 28px;
 }
 .viewer-track-label.right { text-align: right; }
+
+/* ─── Find Gas Near Me Modal ───────────────────────────── */
+#fg-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+#fg-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+#fg-modal {
+  background: #141414;
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 22px;
+  width: 100%;
+  max-width: 560px;
+  position: relative;
+  transform: translateY(18px) scale(0.98);
+  transition: transform 0.25s ease;
+  max-height: 88vh;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04);
+}
+#fg-scroll {
+  overflow-y: auto;
+  max-height: 88vh;
+  padding: 2.5rem 2.5rem 2rem;
+}
+#fg-overlay.open #fg-modal {
+  transform: translateY(0) scale(1);
+}
+#fg-close {
+  position: absolute;
+  top: 1.125rem;
+  right: 1.125rem;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 9px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.55);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+#fg-close:hover { background: rgba(255,255,255,0.13); color: #fff; }
+
+.fg-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.fg-eyebrow-line {
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.fg-title {
+  font-size: 1.625rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  padding-right: 2.5rem;
+}
+.fg-sub {
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.48);
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+}
+.fg-input-row {
+  display: flex;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
+}
+.fg-input-row input {
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(255,255,255,0.11);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  font-size: 0.9375rem;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.fg-input-row input:focus { border-color: rgba(230,40,40,0.5); }
+.fg-input-row input::placeholder { color: rgba(255,255,255,0.27); }
+.fg-input-row button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+}
+.fg-input-row button:hover:not(:disabled) { background: var(--warm); transform: translateY(-1px); }
+.fg-input-row button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.fg-loading {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1.25rem 0;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.9375rem;
+}
+.fg-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.12);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: fg-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes fg-spin { to { transform: rotate(360deg); } }
+
+.fg-msg {
+  font-size: 0.9375rem;
+  padding: 0.875rem 1rem;
+  border-radius: 10px;
+  line-height: 1.55;
+}
+.fg-msg--error {
+  color: #f87171;
+  background: rgba(230,40,40,0.08);
+  border: 1px solid rgba(230,40,40,0.22);
+}
+
+.fg-results-label {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.38);
+  margin-bottom: 0.875rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.fg-results-label strong { color: rgba(255,255,255,0.6); font-weight: 600; }
+
+.fg-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.fg-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 1rem 1.125rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+.fg-item:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); }
+.fg-rank {
+  font-size: 1.125rem;
+  font-weight: 900;
+  color: rgba(255,255,255,0.13);
+  min-width: 22px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.fg-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.fg-dot.live { background: #4ade80; box-shadow: 0 0 7px rgba(74,222,128,0.65); animation: pulse-ring 2.4s ease-out infinite; }
+.fg-dot.soon { background: var(--grey); }
+.fg-info { flex: 1; min-width: 0; }
+.fg-name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fg-area { font-size: 0.8125rem; color: rgba(255,255,255,0.42); }
+.fg-right { text-align: right; flex-shrink: 0; }
+.fg-dist {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+.fg-dir {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+.fg-dir:hover { color: var(--warm); }
+.fg-soon-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.28);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ─── Modal scrollbar ──────────────────────────────────── */
+#fg-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.18) transparent;
+}
+#fg-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+#fg-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 100px;
+}
+#fg-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.18);
+  border-radius: 100px;
+}
+#fg-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.32);
+}
+#fg-scroll::-webkit-scrollbar-button {
+  display: none;
+}
+
+@media (max-width: 540px) {
+  #fg-modal { padding: 2rem 1.25rem 1.75rem; border-radius: 18px; }
+  .fg-input-row { flex-direction: column; }
+  .fg-title { font-size: 1.375rem; }
+  .fg-name { white-space: normal; }
+}
