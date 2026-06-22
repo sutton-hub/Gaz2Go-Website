@@ -786,6 +786,9 @@ section { padding: 7rem 2rem; }
   .stat-cell { padding: 1.25rem 1rem; }
   section { padding: 3.5rem 1rem; }
   #footer { padding: 3rem 1rem 1.5rem; }
+  .phone-frame { width: 200px; height: 400px; }
+  .store-btn { max-width: 100%; }
+  #how .section-inner > div[data-animate]:last-child { margin-top: 2rem !important; }
 }
 
 /* ─── Trust marquee strip ──────────────────────────── */
