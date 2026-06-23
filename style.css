@@ -741,6 +741,11 @@ section { padding: 7rem 2rem; }
 }
 .footer-copy { font-size: 0.8125rem; color: rgba(255,255,255,0.25); }
 
+/* Single-column hero override */
+.hero-inner-solo {
+  grid-template-columns: 52% !important;
+}
+
 /* ─── Responsive ───────────────────────────────────── */
 @media (max-width: 1024px) {
   .hero-inner { grid-template-columns: 1fr; }
@@ -971,11 +976,6 @@ section { padding: 7rem 2rem; }
   mask-composite: intersect;
   -webkit-mask-composite: source-in;
 }
-/* Single-column hero override */
-.hero-inner-solo {
-  grid-template-columns: 52% !important;
-}
-
 /* ─── 3D Unit Viewer ───────────────────────────────── */
 .unit-viewer-wrap {
   position: relative;
