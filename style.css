@@ -1339,6 +1339,7 @@ section { padding: 7rem 2rem; }
 
 @media (max-width: 540px) {
   #fg-modal { padding: 2rem 1.25rem 1.75rem; border-radius: 18px; }
+  #fg-scroll { padding: 1.5rem 1.25rem 1.25rem; }
   .fg-input-row { flex-direction: column; }
   .fg-title { font-size: 1.375rem; }
   .fg-name { white-space: normal; }
