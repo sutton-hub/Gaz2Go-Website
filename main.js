@@ -134,7 +134,7 @@ const STATIONS = [
 ];
 
 const APP_STORE_URL  = "#";
-const PLAY_STORE_URL = "#";
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.mycompany.gaz2gonearme";
 
 const appleBtn = document.getElementById('apple-store-btn');
 if (appleBtn) appleBtn.href = APP_STORE_URL;
@@ -233,7 +233,7 @@ function buildModal() {
         </svg>
       </button>
       <div id="fg-scroll">
-        <div class="fg-eyebrow"><span class="fg-eyebrow-line"></span>Gaz2Go Network</div>
+        <div class="fg-eyebrow"><span class="fg-eyebrow-line"></span>GAZ2GO Network</div>
         <h2 class="fg-title">Find Gas Near Me</h2>
         <p class="fg-sub">Enter your address and we'll show you the closest exchange stations.</p>
         <div class="fg-input-row">
