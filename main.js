@@ -256,6 +256,258 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeStationLightbox();
 });
 
+// ── Legal document modal (Terms of Use, etc.) ───────────
+const LEGAL_DOCS = {
+  terms: {
+    title: "Terms of Use",
+    updated: "Last updated: 5 July 2026",
+    body: `
+      <p>Welcome to GAZ2GO. These Terms of Use ("Terms") govern your access to and use of the GAZ2GO website (gaz2go.co.za), the GAZ2GO Near Me mobile application, and our self-service LPG gas bottle vending and exchange machines (collectively, the "Services"). The Services are owned and operated by <strong>Sli Investment Holdings (Pty) Ltd</strong>, trading as GAZ2GO, a company registered in South Africa with its registered address at 11 Grayhawk Crescent, Westwood, Sunningdale, Cape Town, 7441.</p>
+      <p>By accessing our website, downloading our app, or using any GAZ2GO vending machine, you agree to be bound by these Terms. If you do not agree, please do not use the Services.</p>
+
+      <h3>1. Description of Services</h3>
+      <p>GAZ2GO operates self-service LPG (liquefied petroleum gas) 9kg gas bottle exchange vending machines located at retail and other partner locations. Through these machines and the GAZ2GO Near Me app, you can locate nearby stations, check bottle availability, and exchange an empty, compatible gas bottle for a filled one in return for payment.</p>
+
+      <h3>2. Eligibility</h3>
+      <p>You must be at least 18 years old to use our Services or to purchase or exchange an LPG gas bottle at a GAZ2GO station. By using the Services, you confirm that you meet this requirement and that you have the legal capacity to enter into these Terms.</p>
+
+      <h3>3. Using Our Vending Machines</h3>
+      <p><strong>3.1</strong> GAZ2GO machines are self-service. You are responsible for following the on-screen instructions, safety notices, and any signage displayed at the station.</p>
+      <p><strong>3.2</strong> You must only exchange gas bottles that are compatible with our system (standard 9kg LPG cylinders in acceptable physical condition). GAZ2GO reserves the right to refuse an exchange if a bottle appears damaged, non-compliant, tampered with, or unsafe.</p>
+      <p><strong>3.3</strong> All gas bottles supplied through our machines are filled and handled in accordance with applicable South African National Standards (SANS) requirements for LPG cylinders.</p>
+      <p><strong>3.4</strong> You are responsible for the safe transport, storage, connection, and use of any gas bottle obtained from a GAZ2GO station, in accordance with the manufacturer's instructions and applicable safety regulations. GAZ2GO is not responsible for how a bottle is used, stored, or connected after it leaves our machine.</p>
+      <p><strong>3.5</strong> If you notice a fault with a machine, a leaking or damaged bottle, or any other safety concern, stop using the machine immediately and contact us using the details in Section 12.</p>
+
+      <h3>4. Payments</h3>
+      <p><strong>4.1</strong> Payments for gas bottle exchanges are processed through the payment methods made available at the vending machine or within the app.</p>
+      <p><strong>4.2</strong> Prices displayed at each station are current at the time of transaction and may vary by location. All prices are in South African Rand (ZAR) and, where applicable, are inclusive of VAT.</p>
+      <p><strong>4.3</strong> We take reasonable steps to ensure our payment systems are secure, but we do not store your full card details; these are processed by our third-party payment provider(s).</p>
+      <p><strong>4.4</strong> Refunds or credits for failed transactions (e.g. payment taken without a bottle being dispensed) will be handled in accordance with our support process — please contact us with your transaction details.</p>
+
+      <h3>5. The GAZ2GO Near Me App</h3>
+      <p><strong>5.1</strong> The app is provided to help you locate stations, check real-time stock availability, and navigate to a station. Availability shown in the app is based on our monitoring systems (VIMS) and, while we aim for accuracy, stock levels can change between the time you check and the time you arrive.</p>
+      <p><strong>5.2</strong> You agree not to misuse the app, attempt to interfere with its operation, reverse-engineer it, or use it for any unlawful purpose.</p>
+      <p><strong>5.3</strong> We may update, suspend, or discontinue the app or any of its features at any time.</p>
+
+      <h3>6. Acceptable Use</h3>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Use the Services for any unlawful purpose or in violation of these Terms;</li>
+        <li>Tamper with, damage, or attempt to gain unauthorised access to any GAZ2GO machine or its software/hardware;</li>
+        <li>Interfere with the proper functioning of the website or app, including through malware, scraping, or automated access not authorised by us;</li>
+        <li>Misrepresent your identity or provide false information when using the Services.</li>
+      </ul>
+
+      <h3>7. Intellectual Property</h3>
+      <p>All content on the GAZ2GO website and app — including the GAZ2GO name, logo, branding, text, graphics, and software — is owned by or licensed to Sli Investment Holdings (Pty) Ltd and is protected by South African and international intellectual property law. You may not copy, reproduce, distribute, or create derivative works from our content without our prior written consent.</p>
+
+      <h3>8. Third-Party Locations</h3>
+      <p>GAZ2GO machines are often hosted at third-party retail locations (e.g. shopping centres, service stations). GAZ2GO is responsible for the operation of its vending machines but is not responsible for the premises, parking areas, or other services offered by the host location.</p>
+
+      <h3>9. Limitation of Liability</h3>
+      <p><strong>9.1</strong> To the maximum extent permitted by law, GAZ2GO shall not be liable for any indirect, incidental, or consequential loss or damage arising from your use of the Services, including but not limited to loss of property, injury, or damage arising from the misuse, incorrect storage, or incorrect connection of a gas bottle after collection.</p>
+      <p><strong>9.2</strong> Nothing in these Terms limits any liability that cannot be excluded under South African law, including under the Consumer Protection Act 68 of 2008.</p>
+      <p><strong>9.3</strong> We aim to keep our machines and app operational at all times but do not guarantee uninterrupted availability and are not liable for losses arising from downtime, stockouts, or technical faults, beyond our obligations under applicable consumer protection law.</p>
+
+      <h3>10. Safety Notice</h3>
+      <p>LPG is a flammable substance. Always store and use gas bottles in a well-ventilated area, away from open flames or heat sources, and in an upright position. Never attempt to repair, refill, or tamper with a cylinder yourself. If you smell gas or suspect a leak, do not use naked flames or electrical switches — move to a safe, ventilated area immediately and contact your gas appliance technician or emergency services.</p>
+
+      <h3>11. Changes to These Terms</h3>
+      <p>We may update these Terms from time to time. The updated version will be posted on this page with a revised "Last updated" date. Continued use of the Services after changes take effect constitutes acceptance of the updated Terms.</p>
+
+      <h3>12. Governing Law and Contact</h3>
+      <p>These Terms are governed by the laws of the Republic of South Africa. Any disputes will be subject to the jurisdiction of the South African courts.</p>
+      <p>For questions about these Terms, please contact us:</p>
+      <p><strong>Sli Investment Holdings (Pty) Ltd t/a GAZ2GO</strong><br/>11 Grayhawk Crescent, Westwood, Sunningdale, Cape Town, 7441<br/>Email: frank@sli-invest.com</p>
+    `
+  },
+  privacy: {
+    title: "Privacy Policy",
+    updated: "Last updated: 5 July 2026",
+    body: `
+      <p>Sli Investment Holdings (Pty) Ltd, trading as GAZ2GO, respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website (gaz2go.co.za), use the GAZ2GO Near Me app, or use our LPG vending and exchange machines, in accordance with the <strong>Protection of Personal Information Act 4 of 2013 (POPIA)</strong>.</p>
+
+      <h3>1. Information We Collect</h3>
+      <p><strong>Information you provide directly:</strong></p>
+      <ul>
+        <li>Contact details (name, email address, phone number) when you register interest, contact us, or sign up for updates;</li>
+        <li>Payment information when you make a purchase (processed securely by our third-party payment provider — see Section 5);</li>
+        <li>Any information you submit through contact forms, surveys, or promotions (e.g. our marked-bottle or QR-code competitions).</li>
+      </ul>
+      <p><strong>Information collected automatically:</strong></p>
+      <ul>
+        <li>Device and usage data when you use our website or app (e.g. IP address, browser type, device identifiers, pages visited, app interactions);</li>
+        <li>Location data, if you enable location services in the app, to help you find nearby GAZ2GO stations;</li>
+        <li>Transaction data from vending machine usage (e.g. station location, time, transaction outcome) linked to your payment method where applicable;</li>
+        <li>Cookies and similar tracking technologies on our website (see Section 6).</li>
+      </ul>
+
+      <h3>2. How We Use Your Information</h3>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Process and fulfil gas bottle exchange transactions;</li>
+        <li>Operate, maintain, and improve our website, app, and vending machines;</li>
+        <li>Provide customer support and respond to enquiries;</li>
+        <li>Show you nearby station locations and real-time stock availability;</li>
+        <li>Run competitions or promotions you choose to enter and notify winners;</li>
+        <li>Send you service-related communications and, where you have opted in, marketing communications;</li>
+        <li>Monitor and improve the safety, security, and performance of our machines and systems;</li>
+        <li>Comply with our legal and regulatory obligations.</li>
+      </ul>
+
+      <h3>3. Legal Basis for Processing</h3>
+      <p>We process your personal information on one or more of the following bases: your consent, the necessity of processing to perform a contract with you (e.g. completing a purchase), our legitimate business interests (e.g. improving our Services), and compliance with legal obligations.</p>
+
+      <h3>4. Sharing Your Information</h3>
+      <p>We do not sell your personal information. We may share your information with:</p>
+      <ul>
+        <li><strong>Service providers</strong> who help us operate our Services, such as payment processors, app/cloud hosting providers, and analytics providers, under appropriate confidentiality and data protection terms;</li>
+        <li><strong>Retail partners</strong> who host our vending machines, where necessary for operational purposes (e.g. aggregated stock or usage data, not typically your personal contact details);</li>
+        <li><strong>Regulators or authorities</strong>, where required by law or to protect our rights, safety, or property;</li>
+        <li><strong>Business transferees</strong>, in the event of a merger, acquisition, or sale of assets, subject to this Policy continuing to apply to your information.</li>
+      </ul>
+
+      <h3>5. Payment Information</h3>
+      <p>Payments made through our vending machines or app are processed by third-party payment service providers. GAZ2GO does not store your full card number, CVV, or other sensitive payment credentials on our own systems. Please refer to the relevant payment provider's own privacy and security terms.</p>
+
+      <h3>6. Cookies and Tracking Technologies</h3>
+      <p>Our website may use cookies and similar technologies to remember your preferences, understand how visitors use our site, and improve functionality. You can control or disable cookies through your browser settings; note that some features of our website may not function properly if cookies are disabled.</p>
+
+      <h3>7. Data Retention</h3>
+      <p>We retain personal information for as long as necessary to fulfil the purposes described in this Policy, including to meet legal, accounting, or reporting requirements. When information is no longer needed, we take reasonable steps to delete or anonymise it.</p>
+
+      <h3>8. Data Security</h3>
+      <p>We implement reasonable technical and organisational measures to protect your personal information against loss, misuse, unauthorised access, disclosure, alteration, or destruction. However, no method of transmission or storage is 100% secure, and we cannot guarantee absolute security.</p>
+
+      <h3>9. Your Rights</h3>
+      <p>Under POPIA, you have the right to:</p>
+      <ul>
+        <li>Request access to the personal information we hold about you;</li>
+        <li>Request correction or deletion of your personal information;</li>
+        <li>Object to the processing of your personal information for direct marketing purposes;</li>
+        <li>Withdraw consent where processing is based on consent, without affecting the lawfulness of processing before withdrawal;</li>
+        <li>Lodge a complaint with the <strong>Information Regulator of South Africa</strong> if you believe your information has been processed unlawfully.</li>
+      </ul>
+      <p>To exercise any of these rights, contact us using the details in Section 12.</p>
+
+      <h3>10. Children's Privacy</h3>
+      <p>Our Services are not directed at, and are not intended for use by, children under the age of 18. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us so we can delete it.</p>
+
+      <h3>11. Third-Party Links</h3>
+      <p>Our website or app may contain links to third-party websites or services (e.g. app stores, mapping services). We are not responsible for the privacy practices of these third parties, and we encourage you to review their privacy policies.</p>
+
+      <h3>12. Changes to This Policy</h3>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for legal reasons. The updated version will be posted on this page with a revised "Last updated" date.</p>
+
+      <h3>13. Contact Us</h3>
+      <p>For questions about this Privacy Policy, or to exercise your rights under POPIA, please contact:</p>
+      <p><strong>Sli Investment Holdings (Pty) Ltd t/a GAZ2GO</strong><br/>11 Grayhawk Crescent, Westwood, Sunningdale, Cape Town, 7441<br/>Email: frank@sli-invest.com</p>
+      <p>You may also contact the Information Regulator of South Africa:<br/>Website: inforegulator.org.za</p>
+    `
+  },
+  disclaimer: {
+    title: "Disclaimer",
+    updated: "Last updated: 5 July 2026",
+    body: `
+      <p>The following disclaimer applies to your use of the GAZ2GO website (gaz2go.co.za), the GAZ2GO Near Me app, and GAZ2GO LPG vending and exchange machines, operated by <strong>Sli Investment Holdings (Pty) Ltd</strong> t/a GAZ2GO.</p>
+
+      <h3>1. General Information Only</h3>
+      <p>The content on our website and app is provided for general informational purposes only. While we strive to keep information — including station locations, stock availability, pricing, and safety guidance — accurate and up to date, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, or availability of this information at any given time.</p>
+
+      <h3>2. Station and Stock Availability</h3>
+      <p>Real-time stock availability shown in the GAZ2GO Near Me app is based on our VIMS monitoring system and is intended as a guide only. Stock levels can change between the time you check and the time you arrive at a station due to demand, technical issues, or other factors outside our control. GAZ2GO is not liable for any inconvenience or loss arising from a station being out of stock or temporarily unavailable.</p>
+
+      <h3>3. Gas Safety Disclaimer</h3>
+      <p>LPG (liquefied petroleum gas) is a flammable and hazardous substance if not handled correctly. GAZ2GO supplies filled 9kg LPG cylinders that meet applicable SANS standards at the point of exchange. However:</p>
+      <ul>
+        <li>You are solely responsible for the safe transport, storage, connection, and use of any cylinder obtained from a GAZ2GO machine;</li>
+        <li>You must follow the manufacturer's instructions and any applicable safety regulations when connecting or using a gas cylinder;</li>
+        <li>GAZ2GO is not responsible for injury, loss, or damage arising from improper storage, handling, transport, connection, or use of a cylinder after it has been dispensed;</li>
+        <li>Any gas appliance connections should be performed or checked by a suitably qualified and, where legally required, registered gas practitioner;</li>
+        <li>If you smell gas or suspect a leak, do not use naked flames or electrical switches. Move to a well-ventilated area immediately and seek professional assistance.</li>
+      </ul>
+      <p>Nothing in this disclaimer limits any liability GAZ2GO may have for defective products supplied by us, to the extent such liability cannot lawfully be excluded under the Consumer Protection Act 68 of 2008.</p>
+
+      <h3>4. No Professional Advice</h3>
+      <p>Nothing on our website or app constitutes professional, technical, or safety advice specific to your circumstances. Where you require advice on gas installation, appliance compatibility, or safety matters, please consult a qualified, registered gas practitioner.</p>
+
+      <h3>5. Third-Party Sites and Locations</h3>
+      <p>Our website and app may reference or link to third-party websites, retail partner locations, or app stores. GAZ2GO does not control and is not responsible for the content, accuracy, availability, or practices of any third-party site or premises, and inclusion of any link or reference does not imply endorsement.</p>
+
+      <h3>6. Competitions and Promotions</h3>
+      <p>From time to time, GAZ2GO may run promotional competitions. Any such competition will be governed by its own specific terms and conditions, published at the time of the promotion, which will take precedence over this general disclaimer for matters relating to that competition.</p>
+
+      <h3>7. Limitation of Liability</h3>
+      <p>To the maximum extent permitted by South African law, GAZ2GO, its directors, employees, and agents shall not be liable for any direct, indirect, incidental, special, or consequential loss or damage arising out of, or in connection with, your access to or use of our website, app, or vending machines, including but not limited to loss of data, loss of profits, or personal injury, except where such liability cannot lawfully be excluded.</p>
+
+      <h3>8. Changes to This Disclaimer</h3>
+      <p>We may update this Disclaimer from time to time. The updated version will be posted on this page with a revised "Last updated" date.</p>
+
+      <h3>9. Contact Us</h3>
+      <p>If you have any questions about this Disclaimer, please contact:</p>
+      <p><strong>Sli Investment Holdings (Pty) Ltd t/a GAZ2GO</strong><br/>11 Grayhawk Crescent, Westwood, Sunningdale, Cape Town, 7441<br/>Email: frank@sli-invest.com</p>
+    `
+  }
+};
+
+function buildLegalModal() {
+  const overlay = document.createElement('div');
+  overlay.id = 'legal-overlay';
+  overlay.innerHTML = `
+    <div id="legal-modal" role="dialog" aria-modal="true" aria-label="Legal document">
+      <button id="legal-close" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      <div id="legal-scroll">
+        <div class="fg-eyebrow"><span class="fg-eyebrow-line"></span>GAZ2GO</div>
+        <h2 id="legal-title" class="fg-title"></h2>
+        <p id="legal-updated" class="legal-updated"></p>
+        <div id="legal-body" class="legal-body"></div>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeLegalModal(); });
+  document.getElementById('legal-close').addEventListener('click', closeLegalModal);
+  return overlay;
+}
+
+function openLegalModal(key) {
+  const doc = LEGAL_DOCS[key];
+  if (!doc) return;
+
+  let overlay = document.getElementById('legal-overlay');
+  if (!overlay) overlay = buildLegalModal();
+
+  document.getElementById('legal-title').textContent = doc.title;
+  document.getElementById('legal-updated').textContent = doc.updated;
+  document.getElementById('legal-body').innerHTML = doc.body;
+  document.getElementById('legal-scroll').scrollTop = 0;
+
+  requestAnimationFrame(() => overlay.classList.add('open'));
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLegalModal() {
+  const overlay = document.getElementById('legal-overlay');
+  if (overlay) overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLegalModal();
+});
+
+document.querySelectorAll('[data-legal]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    openLegalModal(link.getAttribute('data-legal'));
+  });
+});
+
 // ── Navbar scroll transition ────────────────────────────
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
