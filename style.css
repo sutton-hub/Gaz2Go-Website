@@ -195,6 +195,11 @@ body {
   gap: 2rem;
 }
 .hero-text { padding: 4rem 0; }
+/* Small-viewport units avoid the mobile URL-bar jump */
+@supports (height: 100svh) {
+  #hero { min-height: 100svh; }
+  .hero-inner { min-height: 100svh; }
+}
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 0.5rem;
   font-size: 1rem;
@@ -727,6 +732,13 @@ section { padding: 7rem 2rem; }
 /* ─── Responsive ───────────────────────────────────── */
 @media (max-width: 1024px) {
   .hero-inner { grid-template-columns: 1fr; }
+  /* Stacked hero below desktop: photo fills the top half and fades into
+     dark, text anchors below it */
+  .hero-inner-solo {
+    grid-template-columns: 1fr !important;
+    justify-content: stretch;
+    align-items: end;
+  }
   .hero-image-wrap { height: 50vh; min-height: 320px; }
   .hero-img { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%); -webkit-mask-composite: source-in; mask-composite: intersect; }
   .steps-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -744,10 +756,13 @@ section { padding: 7rem 2rem; }
 }
 
 @media (max-width: 768px) {
+  :root { --nav-h: 76px; }
+  #navbar { padding: 0 1.25rem; }
+  .nav-logo { height: 60px; }
   .nav-links, .btn-nav { display: none; }
   .hamburger { display: flex; }
   section { padding: 5rem 1.25rem; }
-  .hero-text { padding: 2rem 0; }
+  .hero-text { padding: 0 0 3rem; }
   .cards-grid { grid-template-columns: 1fr; }
   .feature-card:nth-child(n) { border-radius: 0; }
   .feature-card:first-child { border-radius: 16px 16px 0 0; }
@@ -755,7 +770,14 @@ section { padding: 7rem 2rem; }
   .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .footer-bottom { flex-direction: column; text-align: center; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
-  .hero-inner-solo { grid-template-columns: 1fr !important; }
+  /* Step cards: cap the corner icon and add headroom so titles clear it */
+  .step-card { min-height: 380px; }
+  .step-icon { width: 45%; max-width: 180px; height: 130px; }
+  /* Showcase: content defines section height, photo covers behind it */
+  .showcase-bg { position: absolute; inset: 0; height: 100%; object-fit: cover; }
+  .showcase-overlay { background: linear-gradient(to bottom, rgba(10,10,10,0.82) 0%, rgba(10,10,10,0.55) 100%); }
+  .showcase-content { position: relative; inset: auto; padding: 4.5rem 1.25rem; }
+  .map-frame iframe { height: 400px; }
 }
 
 @media (max-width: 480px) {
@@ -770,6 +792,12 @@ section { padding: 7rem 2rem; }
   .phone-frame { width: 200px; height: 400px; transform: rotateY(-8deg) rotateX(2deg); }
   .store-btn { max-width: 100%; }
   #how .section-inner > div[data-animate]:last-child { margin-top: 2rem !important; }
+  .hero-headline { font-size: 2.625rem; }
+  .hero-eyebrow { font-size: 0.8125rem; margin-top: 1rem; }
+  .hero-sub { font-size: 0.9375rem; margin-bottom: 2rem; }
+  .section-label { font-size: 0.875rem; }
+  .footer-logo { height: 80px; }
+  .map-frame iframe { height: 360px; }
 }
 
 /* ─── Trust marquee strip ──────────────────────────── */
@@ -945,6 +973,16 @@ section { padding: 7rem 2rem; }
     linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
   mask-composite: intersect;
   -webkit-mask-composite: source-in;
+}
+/* Stacked hero below desktop: photo occupies the top half and fades into dark
+   below (must follow the base rule above so height/mask overrides win) */
+@media (max-width: 1024px) {
+  .hero-unit-bg img {
+    height: 54%;
+    object-position: 20% 55%;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 58%, transparent 98%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 58%, transparent 98%);
+  }
 }
 /* ─── 3D Unit Viewer ───────────────────────────────── */
 .unit-viewer-wrap {
