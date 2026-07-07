@@ -153,7 +153,7 @@ const STATIONS = [
   { name: "Coming Soon — Pretoria",     area: "Pretoria",     status: "Coming Soon", lat: -25.7461, lng: 28.1881, mapsUrl: "#", image: null },
 ];
 
-const APP_STORE_URL  = "#";
+const APP_STORE_URL  = "https://apps.apple.com/za/app/gaz2go-near-me/id6749020344";
 const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.mycompany.gaz2gonearme";
 
 const appleBtn = document.getElementById('apple-store-btn');
@@ -262,7 +262,7 @@ const LEGAL_DOCS = {
     title: "Terms of Use",
     updated: "Last updated: 5 July 2026",
     body: `
-      <p>Welcome to GAZ2GO. These Terms of Use ("Terms") govern your access to and use of the GAZ2GO website (gaz2go.co.za), the GAZ2GO Near Me mobile application, and our self-service LPG gas bottle vending and exchange machines (collectively, the "Services"). The Services are owned and operated by <strong>Sli Investment Holdings (Pty) Ltd</strong>, trading as GAZ2GO, a company registered in South Africa with its registered address at 11 Grayhawk Crescent, Westwood, Sunningdale, Cape Town, 7441.</p>
+      <p>Welcome to GAZ2GO. These Terms of Use ("Terms") govern your access to and use of the GAZ2GO website (gaz2go.co.za), the GAZ2GO Near Me mobile application, and our self-service LPG gas bottle vending and exchange machines (collectively, the "Services"). The Services are owned and operated by <strong>Sli Investment Holdings (Pty) Ltd</strong>, trading as GAZ2GO, a company registered in South Africa.</p>
       <p>By accessing our website, downloading our app, or using any GAZ2GO vending machine, you agree to be bound by these Terms. If you do not agree, please do not use the Services.</p>
 
       <h3>1. Description of Services</h3>
@@ -318,7 +318,7 @@ const LEGAL_DOCS = {
       <h3>12. Governing Law and Contact</h3>
       <p>These Terms are governed by the laws of the Republic of South Africa. Any disputes will be subject to the jurisdiction of the South African courts.</p>
       <p>For questions about these Terms, please contact us:</p>
-      <p><strong>Sli Investment Holdings (Pty) Ltd t/a GAZ2GO</strong><br/>11 Grayhawk Crescent, Westwood, Sunningdale, Cape Town, 7441<br/>Email: frank@sli-invest.com</p>
+      <p><strong>Sli Investment Holdings (Pty) Ltd t/a GAZ2GO</strong><br/>Email: frank@sli-invest.com</p>
     `
   },
   privacy: {
@@ -401,7 +401,7 @@ const LEGAL_DOCS = {
 
       <h3>13. Contact Us</h3>
       <p>For questions about this Privacy Policy, or to exercise your rights under POPIA, please contact:</p>
-      <p><strong>Sli Investment Holdings (Pty) Ltd t/a GAZ2GO</strong><br/>11 Grayhawk Crescent, Westwood, Sunningdale, Cape Town, 7441<br/>Email: frank@sli-invest.com</p>
+      <p><strong>Sli Investment Holdings (Pty) Ltd t/a GAZ2GO</strong><br/>Email: frank@sli-invest.com</p>
       <p>You may also contact the Information Regulator of South Africa:<br/>Website: inforegulator.org.za</p>
     `
   },
@@ -445,7 +445,7 @@ const LEGAL_DOCS = {
 
       <h3>9. Contact Us</h3>
       <p>If you have any questions about this Disclaimer, please contact:</p>
-      <p><strong>Sli Investment Holdings (Pty) Ltd t/a GAZ2GO</strong><br/>11 Grayhawk Crescent, Westwood, Sunningdale, Cape Town, 7441<br/>Email: frank@sli-invest.com</p>
+      <p><strong>Sli Investment Holdings (Pty) Ltd t/a GAZ2GO</strong><br/>Email: frank@sli-invest.com</p>
     `
   }
 };
